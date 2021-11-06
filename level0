@@ -1,0 +1,33 @@
+level0:level0
+
+Le fichier level0 est présent a la racine de l'utilisateur
+
+$>pwd
+/home/user/level0
+
+$>ls
+level0
+
+$>./level0
+Segmentation fault
+
+$>./level0 0
+No !
+
+$>./level0 10000000000000000
+No !
+
+J'ai donc décompilé le programme et j'ai cherché le main()
+
+Une fois décompilé on peut y voir:
+  - getegid
+  - geteuid
+  - setresgid
+  - setresuid
+
+// TODO Add explainations
+
+On y voit également (0x1a7 == atoi(argv[1]))
+Cette condition donne acces a la suite du programe et execute l'exploit vu ci-dessus
+On arrive donc sur un terminal bash en tant que "level1".
+Le fichier .pass a la racine contient le code suivant: 1fe8a524fa4bec01ca4ea2a869af2a02260d4a7d5fe7e7c24d8617e6dca12d3a
