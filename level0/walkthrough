@@ -29,5 +29,10 @@ Une fois décompilé on peut y voir:
 
 On y voit également (0x1a7 == atoi(argv[1]))
 Cette condition donne acces a la suite du programe et execute l'exploit vu ci-dessus
+
+il faut donc executer la commande suivante:
+
+$>./level0 423
+
 On arrive donc sur un terminal bash en tant que "level1".
 Le fichier .pass a la racine contient le code suivant: 1fe8a524fa4bec01ca4ea2a869af2a02260d4a7d5fe7e7c24d8617e6dca12d3a
