@@ -17,22 +17,15 @@ No !
 $>./level0 10000000000000000
 No !
 
-J'ai donc décompilé le programme et j'ai cherché le main()
+J'ai donc désassemblé le programme et j'ai cherché le main()
 
-Une fois décompilé on peut y voir:
-  - getegid
-  - geteuid
-  - setresgid
-  - setresuid
-
-// TODO Add explainations
+Une fois désassemblé on peut y voir le code dans le fichier Ressources/pseudo_assembler.asm
 
 On y voit également (0x1a7 == atoi(argv[1]))
-Cette condition donne acces a la suite du programe et execute l'exploit vu ci-dessus
+Cette condition donne acces a la suite du programe et execute l'exploit
 
 il faut donc executer la commande suivante:
 
 $>./level0 423
 
 On arrive donc sur un terminal bash en tant que "level1".
-Le fichier .pass a la racine contient le code suivant: 1fe8a524fa4bec01ca4ea2a869af2a02260d4a7d5fe7e7c24d8617e6dca12d3a
