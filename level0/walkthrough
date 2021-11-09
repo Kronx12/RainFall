@@ -1,5 +1,3 @@
-level0:level0
-
 Le fichier level0 est présent a la racine de l'utilisateur
 
 $>pwd
@@ -19,7 +17,7 @@ No !
 
 J'ai donc désassemblé le programme et j'ai cherché le main()
 
-Une fois désassemblé on peut y voir le code dans le fichier Ressources/pseudo_assembler.asm
+Une fois désassemblé on peut y voir le code dans le fichier Ressources/pseudo_assembly.asm
 
 On y voit également (0x1a7 == atoi(argv[1]))
 Cette condition donne acces a la suite du programe et execute l'exploit
