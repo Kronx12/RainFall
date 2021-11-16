@@ -13,10 +13,7 @@ int main(int ac, char **av) {
     uid_t euid;
 
     value = atoi(av[1]);
-    if (value != 0x1a7)
-        fwrite("No !\n", sizeof(char), 5, stderr);
-    else
-    {
+    if (value != 0x1a7) {
         path = strdup("/bin/sh");
         egid = getegid();
         euid = geteuid();
@@ -25,7 +22,8 @@ int main(int ac, char **av) {
         setresuid(euid, euid, euid);
 
         char *argv[] = {"/bin/sh", NULL};
-        execv(path, argv);
-    }
+        execv("/bin.sh", argv);
+    } else
+        fwrite("No !\n", 1, 5, (FILE *)stderr);
     return (0);
 }
