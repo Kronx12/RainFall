@@ -15,9 +15,3 @@ shellcode:
 	mov ebx, esp ; set NULL in arg 1
 
 	int 0x80 ; syscall
-
-	mov al, 1 ; set exit function
-
-	xor ebx, ebx ; exit return to 0
-	 
-	int 0x80 ; syscall
