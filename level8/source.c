@@ -5,33 +5,35 @@ undefined4 main(void)
   char *pcVar2;
   int iVar3;
   uint uVar4;
-  byte *pbVar5;
-  byte *pbVar6;
+  char *pbVar5;
+  char *pbVar6;
   bool bVar7;
   undefined uVar8;
   undefined uVar9;
   bool bVar10;
   undefined uVar11;
-  byte bVar12;
-  byte local_90 [5];
+  char bVar12;
+  char buff [5];
   char local_8b [2];
   char acStack137 [125];
   
   bVar12 = 0;
   do {
-    printf("%p, %p \n",auth,service);
-    pcVar2 = fgets((char *)local_90,0x80,stdin);
+    printf("%p, %p \n", auth, service);
+    pcVar2 = fgets((char *)buff, 0x80, STDIN);
     bVar7 = false;
+    
+    // Si il lit rien return
     bVar10 = pcVar2 == (char *)0x0;
-    if (bVar10) {
-      return 0;
-    }
+    if (bVar10) { return 0; }
+
     iVar3 = 5;
-    pbVar5 = local_90;
-    pbVar6 = (byte *)"auth ";
+    pbVar5 = buff;
+    pbVar6 = (char *)"auth ";
     do {
-      if (iVar3 == 0) break;
-      iVar3 = iVar3 + -1;
+      if (iVar3 == 0)
+        break;
+      iVar3 = iVar3 - 1;
       bVar7 = *pbVar5 < *pbVar6;
       bVar10 = *pbVar5 == *pbVar6;
       pbVar5 = pbVar5 + (uint)bVar12 * -2 + 1;
@@ -58,8 +60,8 @@ undefined4 main(void)
       }
     }
     iVar3 = 5;
-    pbVar5 = local_90;
-    pbVar6 = (byte *)"reset";
+    pbVar5 = buff;
+    pbVar6 = (char *)"reset";
     do {
       if (iVar3 == 0) break;
       iVar3 = iVar3 + -1;
@@ -74,8 +76,8 @@ undefined4 main(void)
       free(auth);
     }
     iVar3 = 6;
-    pbVar5 = local_90;
-    pbVar6 = (byte *)"service";
+    pbVar5 = buff;
+    pbVar6 = (char *)"service";
     do {
       if (iVar3 == 0) break;
       iVar3 = iVar3 + -1;
@@ -87,13 +89,13 @@ undefined4 main(void)
     uVar11 = 0;
     uVar8 = (!(bool)uVar9 && !(bool)uVar8) == (bool)uVar9;
     if ((bool)uVar8) {
-      uVar11 = (byte *)0xfffffff8 < local_90;
+      uVar11 = (char *)0xfffffff8 < buff;
       uVar8 = acStack137 == (char *)0x0;
       service = strdup(acStack137);
     }
     iVar3 = 5;
-    pbVar5 = local_90;
-    pbVar6 = (byte *)"login";
+    pbVar5 = buff;
+    pbVar6 = (char *)"login";
     do {
       if (iVar3 == 0) break;
       iVar3 = iVar3 + -1;
@@ -105,8 +107,7 @@ undefined4 main(void)
     if ((!(bool)uVar11 && !(bool)uVar8) == (bool)uVar11) {
       if (auth[8] == 0) {
         fwrite("Password:\n",1,10,stdout);
-      }
-      else {
+      } else {
         system("/bin/sh");
       }
     }
