@@ -1,0 +1,48 @@
+080485f4 <main>:
+ 80485f4:	55                   	push   %ebp
+ 80485f5:	89 e5                	mov    %esp,%ebp
+ 80485f7:	53                   	push   %ebx
+ 80485f8:	83 e4 f0             	and    $0xfffffff0,%esp
+ 80485fb:	83 ec 20             	sub    $0x20,%esp
+ 80485fe:	83 7d 08 01          	cmpl   $0x1,0x8(%ebp)
+ 8048602:	7f 0c                	jg     8048610 <main+0x1c>
+ 8048604:	c7 04 24 01 00 00 00 	movl   $0x1,(%esp)
+ 804860b:	e8 e0 fe ff ff       	call   80484f0 <_exit@plt>
+ 8048610:	c7 04 24 6c 00 00 00 	movl   $0x6c,(%esp)
+ 8048617:	e8 14 ff ff ff       	call   8048530 <_Znwj@plt>
+ 804861c:	89 c3                	mov    %eax,%ebx
+ 804861e:	c7 44 24 04 05 00 00 	movl   $0x5,0x4(%esp)
+ 8048625:	00 
+ 8048626:	89 1c 24             	mov    %ebx,(%esp)
+ 8048629:	e8 c8 00 00 00       	call   80486f6 <_ZN1NC1Ei>
+ 804862e:	89 5c 24 1c          	mov    %ebx,0x1c(%esp)
+ 8048632:	c7 04 24 6c 00 00 00 	movl   $0x6c,(%esp)
+ 8048639:	e8 f2 fe ff ff       	call   8048530 <_Znwj@plt>
+ 804863e:	89 c3                	mov    %eax,%ebx
+ 8048640:	c7 44 24 04 06 00 00 	movl   $0x6,0x4(%esp)
+ 8048647:	00 
+ 8048648:	89 1c 24             	mov    %ebx,(%esp)
+ 804864b:	e8 a6 00 00 00       	call   80486f6 <_ZN1NC1Ei>
+ 8048650:	89 5c 24 18          	mov    %ebx,0x18(%esp)
+ 8048654:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 8048658:	89 44 24 14          	mov    %eax,0x14(%esp)
+ 804865c:	8b 44 24 18          	mov    0x18(%esp),%eax
+ 8048660:	89 44 24 10          	mov    %eax,0x10(%esp)
+ 8048664:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048667:	83 c0 04             	add    $0x4,%eax
+ 804866a:	8b 00                	mov    (%eax),%eax
+ 804866c:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048670:	8b 44 24 14          	mov    0x14(%esp),%eax
+ 8048674:	89 04 24             	mov    %eax,(%esp)
+ 8048677:	e8 92 00 00 00       	call   804870e <_ZN1N13setAnnotationEPc>
+ 804867c:	8b 44 24 10          	mov    0x10(%esp),%eax
+ 8048680:	8b 00                	mov    (%eax),%eax
+ 8048682:	8b 10                	mov    (%eax),%edx
+ 8048684:	8b 44 24 14          	mov    0x14(%esp),%eax
+ 8048688:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 804868c:	8b 44 24 10          	mov    0x10(%esp),%eax
+ 8048690:	89 04 24             	mov    %eax,(%esp)
+ 8048693:	ff d2                	call   *%edx
+ 8048695:	8b 5d fc             	mov    -0x4(%ebp),%ebx
+ 8048698:	c9                   	leave  
+ 8048699:	c3                   	ret   
