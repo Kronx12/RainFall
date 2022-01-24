@@ -1,5 +1,7 @@
+#include <stdio.h>
+
 void p(void) {
-  uint unaff_retaddr;
+  unsigned int unaff_retaddr;
   char local_50 [76];
   
   fflush(stdout);

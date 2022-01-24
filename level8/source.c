@@ -1,6 +1,4 @@
-undefined4 main(void)
-
-{
+undefined4 main(void) {
   char cVar1;
   char *pcVar2;
   int iVar3;

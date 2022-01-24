@@ -1,8 +1,10 @@
-
 If we decompile level8 with `objdump -d level8`, we see if we use a `auth` or `service` it will increment our pointer by 10.
 
-There are two pointers which is global variables 
-To access `system('/bin/sh')`, we need to check our memory on auth + (32 bytes) if memory is different from zero when we use our command `login` :
+This program is a little bit complex but we can resume it to 2 simple conditions:
+- Service need to be (Auth + 0x20) address
+- The 32th byte of the auth array need to be different from 0 to access `system('/bin/sh').
+
+If memory is different from zero when we use our command `login` :
 
 ```bash
 $ ./level8

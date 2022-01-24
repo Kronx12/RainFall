@@ -1,10 +1,14 @@
-vvoid greetuser(void) {
-  undefined4 local_4c;
-  undefined4 local_48;
-  undefined4 local_44;
-  undefined4 local_40;
-  undefined2 local_3c;
-  undefined local_3a;
+#include <stdio.h>
+
+int language;
+
+int greetuser(void) {
+  unsigned int local_4c;
+  unsigned int local_48;
+  unsigned int local_44;
+  unsigned int local_40;
+  unsigned short local_3c;
+  unsigned char local_3a;
   
   if (language == 1) {
     local_4c = 0xc3767948;
@@ -34,49 +38,43 @@ vvoid greetuser(void) {
 }
 
 
-undefined4 main(int param_1,int param_2) {
-  undefined4 uVar1;
+int main(int argc, char **argv) {
+  unsigned int uVar1;
   int iVar2;
-  undefined4 *puVar3;
-  undefined4 *puVar4;
-  byte bVar5;
-  undefined4 local_60 [10];
-  char acStack56 [36];
-  char *local_14;
+  unsigned int *puVar3;
+  unsigned int *puVar4;
+  char bVar5;
+  char local_60[40];
+  char acStack56[36];
+  char *env_lang;
   
   bVar5 = 0;
-  if (param_1 == 3) {
-    puVar3 = local_60;
-    for (iVar2 = 0x13; iVar2 != 0; iVar2 = iVar2 + -1) {
-      *puVar3 = 0;
-      puVar3 = puVar3 + 1;
-    }
-    strncpy((char *)local_60,*(char **)(param_2 + 4),0x28);
-    strncpy(acStack56,*(char **)(param_2 + 8),0x20);
-    local_14 = getenv("LANG");
-    if (local_14 != (char *)0x0) {
-      iVar2 = memcmp(local_14,&DAT_0804873d,2);
-      if (iVar2 == 0) {
+  if (argc == 3) {
+    for (int i = 0; i < 40; i++)
+      local_60[i] = 0;
+
+    strncpy(local_60, argv[1], 40);
+    strncpy(acStack56, argv[2], 32);
+
+    // Set language to corresponding lang
+    env_lang = getenv("LANG");
+    if (env_lang != NULL) {
+      iVar2 = memcmp(env_lang, "fi", 2);
+      if (iVar2 == 0)
         language = 1;
-      }
       else {
-        iVar2 = memcmp(local_14,&DAT_08048740,2);
-        if (iVar2 == 0) {
+        iVar2 = memcmp(env_lang, "nl", 2);
+        if (iVar2 == 0)
           language = 2;
-        }
       }
     }
-    puVar3 = local_60;
-    puVar4 = (undefined4 *)&stack0xffffff50;
-    for (iVar2 = 0x13; iVar2 != 0; iVar2 = iVar2 + -1) {
-      *puVar4 = *puVar3;
-      puVar3 = puVar3 + (uint)bVar5 * -2 + 1;
-      puVar4 = puVar4 + (uint)bVar5 * -2 + 1;
-    }
+
+    puVar4 = (unsigned int *)&stack0xffffff50;
+    for (int i = 0; i < 19; i++)
+      puVar4[i] = local_60[i];
     uVar1 = greetuser();
   }
-  else {
+  else
     uVar1 = 1;
-  }
   return uVar1;
 }

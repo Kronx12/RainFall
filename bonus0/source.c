@@ -11,8 +11,7 @@ void p(char *param_1,char *param_2) {
 }
 
 void pp(char *param_1) {
-  char cVar1;
-  uint uVar2;
+  unsigned int i;
   char *pcVar3;
   byte bVar4;
   char local_34 [20];
@@ -22,15 +21,14 @@ void pp(char *param_1) {
   p(local_34,&DAT_080486a0);
   p(local_20,&DAT_080486a0);
   strcpy(param_1,local_34);
-  uVar2 = 0xffffffff;
+  i = 0xffffffff;
   pcVar3 = param_1;
   do {
-    if (uVar2 == 0) break;
-    uVar2 = uVar2 - 1;
-    cVar1 = *pcVar3;
-    pcVar3 = pcVar3 + (uint)bVar4 * -2 + 1;
-  } while (cVar1 != '\0');
-  *(undefined2 *)(param_1 + (~uVar2 - 1)) = 0x20;
+    if (i == 0) break;
+    i--;
+    pcVar3 = pcVar3 + (unsigned int)bVar4 * -2 + 1;
+  } while (pcVar3[i]);
+  *(undefined2 *)(param_1 + (~i - 1)) = ' ';
   strcat(param_1,local_20);
   return;
 }

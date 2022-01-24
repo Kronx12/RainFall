@@ -13,7 +13,7 @@ On this level we can't use `objdump -d ./level0`, so we may use `gdb` with `disa
 [...]
 ```
 
-We can see that the executable use an `atoi` on argv[1] and compare with the value `0x1a7 = 423`.
+We can see that the executable use an `atoi()` on argv[1] and compare with the value `0x1a7 = 423`.
 So, if we set argv[1] at 423, it will execute a bash with `system('/bin/sh')`:
 
 ```bash

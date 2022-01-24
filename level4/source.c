@@ -1,3 +1,7 @@
+#include <stdio.h>
+
+unsigned int m = 0;
+
 void p(char *print) {
     printf(print);
     return ;
@@ -9,8 +13,6 @@ void n(void) {
   fgets(local_20c,0x200,stdin);
   p(local_20c);
   if (m == 0x1025544) {
-
-      0x102554c
     system("/bin/cat /home/user/level5/.pass");
   }
   return;
@@ -18,5 +20,5 @@ void n(void) {
 
 void main() {
     n();
-    return ;
+    return;
 }

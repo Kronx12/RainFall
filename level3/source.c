@@ -1,3 +1,7 @@
+#include <stdio.h>
+
+unsigned int m = 0;
+
 void v(void) {
   char local_20c [520];
   

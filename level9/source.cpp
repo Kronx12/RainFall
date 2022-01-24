@@ -18,12 +18,12 @@ class N {
         size_t __n;
         
         __n = strlen(param_1);
-        memcpy(this + 4, param_1, __n);
+        memcpy(this->str, param_1, __n);
         return;
     }
 
-    N n_on_sait_pas;
-    int _68;
+    N *ptr;
+    char *str;
 };
 
 

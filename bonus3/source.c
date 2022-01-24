@@ -1,4 +1,4 @@
-undefined4 main(int param_1,int param_2)
+undefined4 main(int param_1,char **param_2)
 
 {
   undefined4 uVar1;
@@ -23,15 +23,14 @@ undefined4 main(int param_1,int param_2)
   else {
     fread(local_98,1,0x42,local_14);
     local_57 = 0;
-    iVar2 = atoi(*(char **)(param_2 + 4));
-    *(undefined *)((int)local_98 + iVar2) = 0;
-    fread(local_56,1,0x41,local_14);
+    iVar2 = atoi(param_2[1]);
+    local_98[iVar2] = 0;
+    fread(local_56,1,0x41, local_14);
     fclose(local_14);
-    iVar2 = strcmp((char *)local_98,*(char **)(param_2 + 4));
+    iVar2 = strcmp((char *)local_98, param_2[0]);
     if (iVar2 == 0) {
       execl("/bin/sh","sh",0);
-    }
-    else {
+    } else {
       puts(local_56);
     }
     uVar1 = 0;
